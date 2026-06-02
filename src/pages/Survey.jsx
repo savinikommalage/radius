@@ -115,10 +115,10 @@ function OptionCard({ title, description, selected, onClick, className = '' }) {
     <button
       type="button"
       onClick={onClick}
-      className={`w-full border border-gray-300 bg-white p-4 text-left transition duration-300 ease-out hover:border-[#534AB7] hover:bg-[#FBF9F2] sm:p-6 ${selected ? 'border-[#534AB7] bg-[#FBF9F2]' : ''} ${className}`}
+      className={`w-full border border-gray-300 bg-white p-4 text-left transition duration-300 ease-out hover:border-purple-800 hover:bg-[#FBF9F2] sm:p-6 ${selected ? 'border-purple-800 bg-[#FBF9F2]' : ''} ${className}`}
     >
       <div className="flex items-start gap-3">
-        <span className={`mt-0.5 h-4 w-4 shrink-0 border ${selected ? 'border-[#534AB7] bg-[#534AB7]' : 'border-gray-500 bg-white'}`} />
+        <span className={`mt-0.5 h-4 w-4 shrink-0 border ${selected ? 'border-purple-800 bg-purple-800' : 'border-gray-500 bg-white'}`} />
         <div>
           <div className="text-sm font-bold uppercase tracking-[0.08em] text-black md:text-base">{title}</div>
           {description ? <p className="mt-2 max-w-2xl text-sm leading-5 text-gray-600">{description}</p> : null}
@@ -210,13 +210,13 @@ export default function Survey({ navigate }) {
     return (
       <main className="min-h-screen bg-white text-black flex items-center justify-center px-6">
         <div className="max-w-md text-center space-y-6">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#534AB7]">Done</p>
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-purple-800">Done</p>
           <h1 className="text-3xl font-bold uppercase tracking-tight">Thanks — you're in.</h1>
           <p className="text-gray-600 leading-6">We'll reach out when early access opens. You've helped shape what gets built.</p>
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white transition hover:bg-[#463ea0]"
+            className="inline-flex items-center justify-center border border-purple-800 bg-purple-800 px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white transition hover:bg-purple-900"
           >
             Back to home →
           </button>
@@ -235,7 +235,7 @@ export default function Survey({ navigate }) {
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="border border-[#534AB7] bg-[#534AB7] px-4 py-2 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-[#463ea0]"
+            className="border border-purple-800 bg-purple-800 px-4 py-2 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-purple-900"
           >
             Back to landing
           </button>
@@ -248,7 +248,7 @@ export default function Survey({ navigate }) {
             <section className="border border-gray-300 p-5 sm:p-8 md:p-12">
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#534AB7]">{step.eyebrow}</p>
+                  <p className="text-xs font-medium uppercase tracking-[0.3em] text-purple-800">{step.eyebrow}</p>
                   <h1 className="text-xl font-bold uppercase tracking-[0.06em] text-black sm:text-2xl md:text-3xl">{step.title}</h1>
                 </div>
 
@@ -305,7 +305,7 @@ export default function Survey({ navigate }) {
                         onChange={event => setForm(current => ({ ...current, email: event.target.value }))}
 
                         placeholder="your.name@gmail.com"
-                        className="w-full border border-gray-600 bg-transparent px-3 py-3 font-mono text-base text-white outline-none placeholder:text-gray-500 focus:border-[#534AB7] sm:px-4 sm:py-4 sm:text-lg"
+                        className="w-full border border-gray-600 bg-transparent px-3 py-3 font-mono text-base text-white outline-none placeholder:text-gray-500 focus:border-purple-800 sm:px-4 sm:py-4 sm:text-lg"
                       />
                     </label>
                     </div>
@@ -316,7 +316,7 @@ export default function Survey({ navigate }) {
                     type="button"
                     onClick={retreat}
                     disabled={isFirstStep}
-                    className="inline-flex items-center justify-center border border-gray-300 bg-white px-4 py-2.5 text-xs font-bold uppercase tracking-[0.16em] text-black transition hover:border-[#534AB7] disabled:cursor-not-allowed disabled:opacity-40 sm:px-5 sm:py-3 sm:text-sm"
+                    className="inline-flex items-center justify-center border border-gray-300 bg-white px-4 py-2.5 text-xs font-bold uppercase tracking-[0.16em] text-black transition hover:border-purple-800 disabled:cursor-not-allowed disabled:opacity-40 sm:px-5 sm:py-3 sm:text-sm"
                   >
                     Back
                   </button>
@@ -324,7 +324,7 @@ export default function Survey({ navigate }) {
                   {isLastStep ? (
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-[#463ea0] sm:px-8 sm:py-4 sm:text-sm"
+                      className="inline-flex items-center justify-center border border-purple-800 bg-purple-800 px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-purple-900 sm:px-8 sm:py-4 sm:text-sm"
                     >
                       Submit responses →
                     </button>
@@ -332,7 +332,7 @@ export default function Survey({ navigate }) {
                     <button
                       type="button"
                       onClick={advance}
-                      className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-[#463ea0] sm:px-8 sm:py-4 sm:text-sm"
+                      className="inline-flex items-center justify-center border border-purple-800 bg-purple-800 px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-purple-900 sm:px-8 sm:py-4 sm:text-sm"
                     >
                       Next page →
                     </button>

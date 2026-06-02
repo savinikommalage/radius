@@ -109,7 +109,7 @@ export default function Home({ navigate }) {
   const carouselRef = useRef(null)
 
   return (
-    <div className="min-h-screen bg-[#faf7f2] text-stone-900">
+    <div className="min-h-screen overflow-x-hidden bg-[#faf7f2] text-stone-900">
       <header className="sticky top-0 z-20 border-b border-stone-400 bg-[#faf7f2]/95 backdrop-blur" id="top">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 md:px-12">
           <div className="text-2xl font-bold lowercase tracking-tight text-purple-800 sm:text-3xl md:text-4xl">radius</div>
@@ -124,7 +124,7 @@ export default function Home({ navigate }) {
       </header>
 
       <main>
-        <section className="border-b border-stone-400 bg-[radial-gradient(circle_at_top,_rgba(120,113,108,0.22),_transparent_35%)]">
+        <section className="overflow-hidden border-b border-stone-400 bg-[radial-gradient(circle_at_top,_rgba(120,113,108,0.22),_transparent_35%)]">
           <div className="mx-auto grid max-w-[1280px] gap-8 px-4 py-10 sm:px-6 md:px-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10 lg:py-20">
             <div className="space-y-8">
               <div className="space-y-4">
@@ -160,7 +160,7 @@ export default function Home({ navigate }) {
               <div className="border-2 border-[#534AB7] bg-white/60 p-3 sm:p-4">
                 <div className="mt-4">
                   {/* Carousel placed here to the right of the hero text */}
-                  <div className="mx-auto max-w-md px-2">
+                  <div className="mx-auto max-w-md overflow-hidden px-8">
                     <div className="relative">
                       <button
                         aria-label="Previous"
