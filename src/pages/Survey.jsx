@@ -230,7 +230,7 @@ export default function Survey({ navigate }) {
     <main className="min-h-screen bg-white text-black">
       <header className="border-b border-gray-300 bg-[#FBF9F2]">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 md:px-12">
-          <button type="button" onClick={() => navigate('/')} className="text-2xl font-semibold lowercase leading-8 tracking-tight text-[#69309E] md:text-4xl">
+          <button type="button" onClick={() => navigate('/')} className="ttext-3xl font-bold lowercase tracking-tight text-purple-800 md:text-4xl">
             radius
           </button>
           <button

@@ -123,15 +123,15 @@ export default function Home({ navigate }) {
           <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 md:px-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-20">
             <div className="space-y-8">
               <div className="space-y-4">
-                  
-                  <h1 className="max-w-3xl text-5xl font-bold uppercase leading-[0.95] tracking-tight text-stone-900 md:text-7xl">
-                    Never miss
-                    <span className="block bg-gradient-to-r from-purple-800 via-purple-600 to-orange-500 bg-clip-text text-transparent">what matters.</span>
-                  </h1>
+                <SectionEyebrow tone="indigo">Event Passport</SectionEyebrow>
+                <h1 className="max-w-3xl text-5xl font-bold uppercase leading-[0.95] tracking-tight text-stone-900 md:text-7xl">
+                  Never miss
+                  <span className="block text-purple-800">what matters.</span>
+                </h1>
                 <p className="max-w-2xl border-l-2 border-purple-800 pl-4 text-lg leading-7 text-zinc-700 md:text-xl md:leading-8">
                   radius is a student event platform for Sri Lankan university communities - built so you can discover events, find your people, and build a real record of everything you&apos;ve been part of.
                 </p>
-                
+
               </div>
 
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -304,10 +304,10 @@ export default function Home({ navigate }) {
       <footer className="border-t border-stone-400 bg-orange-50 px-6 py-6 md:px-12">
         <div className="mx-auto flex max-w-[1280px] flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="text-2xl font-semibold lowercase leading-8 tracking-tight text-purple-800 md:text-4xl">radius</div>
+            <div className="text-3xl font-bold lowercase tracking-tight text-purple-800 md:text-4xl">radius</div>
             <p className="text-xs uppercase tracking-[0.28em] text-zinc-500">radius © 2026. All rights reserved.</p>
           </div>
-          
+
         </div>
       </footer>
     </div>
