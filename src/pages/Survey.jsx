@@ -45,7 +45,7 @@ const steps = [
     eyebrow: '04 / SOLUTION',
     title: <>Would a unified event calendar for the<br />whole tech community change things?</>,
     type: 'single',
-    options: ['Game changer', 'Marginal improvement']
+    options: ['Yes — I’d actually use this daily', 'Maybe — depends on how good it is']
   },
   {
     key: 'priority',
@@ -55,11 +55,58 @@ const steps = [
     options: ['One-click registration', 'Team matchmaking', 'Smart reminders', 'Event portfolio']
   },
   {
+    key: 'reach',
+    eyebrow: '06 / REACH',
+    title: <>When you post about an event, how far<br />does it actually reach?</>,
+    type: 'single',
+    options: [
+      {
+        value: 'own-members',
+        label: 'Only our own members',
+        description: 'It stays within our group. Students outside rarely hear about it.'
+      },
+      {
+        value: 'some-spillover',
+        label: 'Some spillover, not enough',
+        description: 'A few outsiders find out, mostly through word of mouth.'
+      },
+      {
+        value: 'reaches-wide',
+        label: 'It reaches widely',
+        description: 'We consistently pull in students from across the university and beyond.'
+      }
+    ]
+  },
+  {
+    key: 'crosscommunity',
+    eyebrow: '07 / COORDINATION',
+    title: <>How hard is it to organise something<br />that spans multiple communities or universities?</>,
+    type: 'single',
+    options: [
+      {
+        value: 'never-tried',
+        label: "We haven't tried — it feels too complex",
+        description: "Coordinating across groups seems like more effort than it's worth."
+      },
+      {
+        value: 'tried-painful',
+        label: "We've tried — it was a mess",
+        description: 'Endless group chats, mismatched registrations, no single source of truth.'
+      },
+      {
+        value: 'works-but-manual',
+        label: "It works but it's all manual",
+        description: 'We make it happen through sheer effort every single time.'
+      }
+    ]
+  },
+  {
     key: 'email',
-    eyebrow: '06 / BETA ACCESS',
+    eyebrow: '08 / BETA ACCESS',
     title: <>Want early access?</>,
     type: 'email'
   }
+
 ]
 
 function OptionCard({ title, description, selected, onClick, className = '' }) {
@@ -88,8 +135,11 @@ export default function Survey({ navigate }) {
     teamwork: '',
     solution: '',
     priority: [],
+    reach: '',           // add this
+    crosscommunity: '',  // add this
     email: ''
   })
+
 
   const step = steps[stepIndex]
   const isFirstStep = stepIndex === 0
@@ -214,12 +264,11 @@ export default function Survey({ navigate }) {
                         required
                         value={form.email}
                         onChange={event => setForm(current => ({ ...current, email: event.target.value }))}
-                        placeholder="your.name@uni.edu"
+                        placeholder="your.name@gmail.com"
                         className="w-full border border-gray-600 bg-transparent px-4 py-4 font-mono text-lg text-white outline-none placeholder:text-gray-500 focus:border-[#534AB7]"
                       />
                     </label>
-                    <p className="text-xs uppercase tracking-[0.3em] text-[#9CA3AF]">Anonymous · No account needed ·</p>
-                  </div>
+                    </div>
                 ) : null}
 
                 <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
