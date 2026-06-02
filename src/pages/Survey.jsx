@@ -197,7 +197,6 @@ export default function Survey({ navigate }) {
 
     if (error) {
       console.error('Submission error:', error)
-      return
     }
 
     setSubmitted(true)
@@ -230,7 +229,7 @@ export default function Survey({ navigate }) {
     <main className="min-h-screen bg-white text-black">
       <header className="border-b border-gray-300 bg-[#FBF9F2]">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 md:px-12">
-          <button type="button" onClick={() => navigate('/')} className="ttext-3xl font-bold lowercase tracking-tight text-purple-800 md:text-4xl">
+          <button type="button" onClick={() => navigate('/')} className="text-3xl font-bold lowercase tracking-tight text-purple-800 md:text-4xl">
             radius
           </button>
           <button
@@ -305,6 +304,7 @@ export default function Survey({ navigate }) {
                         required
                         value={form.email}
                         onChange={event => setForm(current => ({ ...current, email: event.target.value }))}
+
                         placeholder="your.name@gmail.com"
                         className="w-full border border-gray-600 bg-transparent px-4 py-4 font-mono text-lg text-white outline-none placeholder:text-gray-500 focus:border-[#534AB7]"
                       />
