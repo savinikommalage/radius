@@ -1,23 +1,30 @@
-import React from 'react'
+import React, { useRef } from 'react';
+import { Carousel } from 'antd';
 
-const audienceBlocks = [
+const features = [
   {
-    title: "WANT TO GO TO A HACKATHON BUT CAN'T FIND A TEAM?",
-    body: "radius has a looking-for-team board. Post that you're available, browse who else is, and form your team before the event even starts."
+    title: "Want to go to a hackathon but can't find a team?",
+    description:
+      "radius has a looking-for-team board. Post that you're available, browse who else is, and form your team before the event even starts.",
   },
   {
-    title: "HAVEN'T FOUND YOUR NICHE COMMUNITY YET?",
-    body: 'Follow the clubs and societies that match your interests. See every event they run - workshops, talks, icebreakers - in one feed.'
+    title: "Haven't found your niche community yet?",
+    description:
+      "Follow the clubs and societies that match your interests. See every event they run — workshops, talks, icebreakers — in one feed.",
   },
   {
-    title: 'TIRED OF ONLY DOING UNIVERSITY WORK?',
-    body: "There's more going on than your timetable. radius surfaces events from across your university and beyond - so you actually know what's out there."
+    title: "Tired of only doing university work?",
+    description:
+      "There’s more going on than your timetable. radius surfaces events from across your university and beyond — so you actually know what’s out there.",
   },
   {
-    title: 'WANT TO MAKE CONNECTIONS THAT GO SOMEWHERE?',
-    body: 'Meet people through shared interests at real events. Your attendance gets logged - a verified record of who you are beyond your transcript.'
-  }
-]
+    title: "Want to make connections that go somewhere?",
+    description:
+      "Meet people through shared interests at real events. Verified records of what you’ve done make it easy to show impact.",
+  },
+];
+
+
 
 const howItWorks = [
   {
@@ -43,22 +50,22 @@ const howItWorks = [
 ]
 
 const passportEntries = [
-  {
-    label: 'HACKATHON · UOM',
-    detail: 'HackX 2026 — team lead, 12 hrs attended'
-  },
-  {
-    label: 'WORKSHOP · SLIIT',
-    detail: 'Intro to ML Systems — attended + reflection'
-  },
-  {
-    label: 'COMMUNITY EVENT · IIT',
-    detail: 'IEEE Tech Night — checked in'
-  },
-  {
-    label: 'COMPETITION · UCSC',
-    detail: 'CodeSprint 7 — participant'
-  }
+  // {
+  //   label: 'HACKATHON · UOM',
+  //   detail: 'HackX 2026 — team lead, 12 hrs attended'
+  // },
+  // {
+  //   label: 'WORKSHOP · SLIIT',
+  //   detail: 'Intro to ML Systems — attended + reflection'
+  // },
+  // {
+  //   label: 'COMMUNITY EVENT · IIT',
+  //   detail: 'IEEE Tech Night — checked in'
+  // },
+  // {
+  //   label: 'COMPETITION · UCSC',
+  //   detail: 'CodeSprint 7 — participant'
+  // }
 ]
 
 const organizerSteps = [
@@ -94,6 +101,8 @@ function Card({ children, className = '' }) {
 }
 
 export default function Home({ navigate }) {
+  const carouselRef = useRef(null)
+
   return (
     <div className="min-h-screen bg-[#faf7f2] text-stone-900">
       <header className="sticky top-0 z-20 border-b border-stone-400 bg-[#faf7f2]/95 backdrop-blur" id="top">
@@ -114,17 +123,15 @@ export default function Home({ navigate }) {
           <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 md:px-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-20">
             <div className="space-y-8">
               <div className="space-y-4">
-                <SectionEyebrow tone="indigo">Event Passport</SectionEyebrow>
-                <h1 className="max-w-3xl text-5xl font-bold uppercase leading-[0.95] tracking-tight text-stone-900 md:text-7xl">
-                  Never miss
-                  <span className="block text-purple-800">what matters.</span>
-                </h1>
+                  
+                  <h1 className="max-w-3xl text-5xl font-bold uppercase leading-[0.95] tracking-tight text-stone-900 md:text-7xl">
+                    Never miss
+                    <span className="block bg-gradient-to-r from-purple-800 via-purple-600 to-orange-500 bg-clip-text text-transparent">what matters.</span>
+                  </h1>
                 <p className="max-w-2xl border-l-2 border-purple-800 pl-4 text-lg leading-7 text-zinc-700 md:text-xl md:leading-8">
                   radius is a student event platform for Sri Lankan university communities - built so you can discover events, find your people, and build a real record of everything you&apos;ve been part of.
                 </p>
-                <p className="max-w-2xl text-base leading-6 text-zinc-700">
-                  We&apos;re still building it. This page exists because we want to know what matters to you first.
-                </p>
+                
               </div>
 
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -144,43 +151,60 @@ export default function Home({ navigate }) {
               </div>
             </div>
 
-            <div className="rounded-sm border border-stone-400 bg-stone-200 p-4 shadow-[0_24px_80px_rgba(28,25,23,0.08)]">
-              <div className="border border-stone-400 bg-white/60 p-4">
-                <div className="h-8 w-40 border border-orange-400 bg-purple-800 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]" />
-                <div className="mt-4 space-y-3">
-                  <div className="h-4 w-full bg-neutral-300" />
-                  <div className="h-4 w-2/3 bg-neutral-300" />
-                  <div className="rounded-sm border border-stone-400 bg-orange-50 p-4">
-                    <div className="flex items-center gap-3">
-                      <div className="h-6 w-6 bg-purple-800" />
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.25em] text-violet-950">A quick look</p>
-                        <p className="text-sm text-indigo-800">Events, teams, attendance, and proof in one place.</p>
+            <div className="rounded-sm border-2 border-[#534AB7] bg-stone-200 p-4 shadow-[0_24px_80px_rgba(28,25,23,0.08)] lg:translate-x-4 xl:translate-x-6">
+              <div className="border-2 border-[#534AB7] bg-white/60 p-4">
+                <div className="mt-4">
+                  {/* Carousel placed here to the right of the hero text */}
+                  <div className="mx-auto max-w-md px-2">
+                    <div className="relative">
+                      <button
+                        aria-label="Previous"
+                        onClick={() => carouselRef.current?.prev?.()}
+                        className="absolute -left-6 md:-left-8 top-1/2 z-20 -translate-y-1/2 p-3 text-stone-800 hover:text-stone-900"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path className="text-stone-800" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+
+                      <button
+                        aria-label="Next"
+                        onClick={() => carouselRef.current?.next?.()}
+                        className="absolute -right-6 md:-right-8 top-1/2 z-20 -translate-y-1/2 p-3 text-stone-800 hover:text-stone-900"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path className="text-stone-800" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+
+                      <div className="pl-4 pr-4">
+                        <Carousel
+                          ref={carouselRef}
+                          autoplay
+                          autoplaySpeed={1900}
+                          speed={500}
+                        >
+                          {features.map((feature, index) => (
+                            <div key={index}>
+                              <div className="rounded-2xl border-2 border-[#534AB7] bg-[#FBF9F2] p-6 text-center min-h-[180px] md:min-h-[300px] flex items-center justify-center">
+                                <div>
+                                  <h2 className="mb-4 text-2xl font-semibold uppercase">
+                                    {feature.title}
+                                  </h2>
+                                  <p className="mx-auto max-w-md text-zinc-700">
+                                    {feature.description}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </Carousel>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="border-b border-stone-400 bg-orange-50">
-          <div className="mx-auto grid max-w-[1280px] gap-6 px-6 py-6 md:grid-cols-2 md:px-12 xl:grid-cols-4">
-            {audienceBlocks.map((block, index) => (
-              <Card
-                key={block.title}
-                className={`relative overflow-hidden p-8 ${index === 0 ? 'xl:translate-y-0' : ''} ${index === 1 ? 'xl:translate-y-3' : ''} ${index === 2 ? 'xl:translate-y-1' : ''} ${index === 3 ? 'xl:translate-y-4' : ''}`}
-              >
-                <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-[#534AB7] via-[#69309E] to-[#D1D5DB]" />
-                <div className="space-y-4">
-                  <h2 className="max-w-sm text-2xl font-semibold uppercase leading-8 tracking-tight text-stone-900">
-                    {block.title}
-                  </h2>
-                  <p className="max-w-sm text-base leading-6 text-zinc-700">{block.body}</p>
-                </div>
-              </Card>
-            ))}
           </div>
         </section>
 
@@ -191,9 +215,9 @@ export default function Home({ navigate }) {
               <h2 className="text-4xl font-bold uppercase leading-tight tracking-tight text-stone-900 md:text-5xl">From discovery to your passport</h2>
             </div>
 
-            <div className="grid border border-stone-400 md:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-4 border border-stone-400 p-4 md:grid-cols-2 xl:grid-cols-4">
               {howItWorks.map((step, index) => (
-                <Card key={step.number} className={`p-6 ${index !== howItWorks.length - 1 ? 'border-b md:border-b-0 md:border-r' : ''}`}>
+                <Card key={step.number} className={`p-6`}>
                   <div className="space-y-3">
                     <div className="text-xs font-normal uppercase tracking-[0.3em] text-indigo-800">{step.number}</div>
                     <h3 className="text-2xl font-semibold uppercase leading-8 tracking-tight text-stone-900">{step.title}</h3>
@@ -209,7 +233,7 @@ export default function Home({ navigate }) {
           <div className="mx-auto grid max-w-[1280px] gap-0 lg:grid-cols-[1fr_0.95fr]">
             <div className="border-b border-indigo-700/20 px-6 py-14 md:px-12 lg:border-b-0 lg:py-20">
               <div className="max-w-2xl space-y-6">
-                <SectionEyebrow tone="indigo">Event Passport</SectionEyebrow>
+                <SectionEyebrow tone="indigo">Your passport</SectionEyebrow>
                 <h2 className="text-5xl font-bold uppercase leading-[0.95] tracking-tight text-violet-950 md:text-7xl">
                   Proof of what you&apos;ve actually done.
                 </h2>
@@ -220,7 +244,7 @@ export default function Home({ navigate }) {
             </div>
 
             <div className="px-6 py-10 md:px-12 lg:py-20">
-              <div className="mx-auto max-w-xl border border-stone-400 bg-orange-50 shadow-[0px_24px_80px_rgba(28,25,23,0.08)]">
+              <div className="mx-auto max-w-xl bg-orange-50 shadow-[0px_24px_80px_rgba(28,25,23,0.08)]">
                 {passportEntries.map((entry, index) => (
                   <div
                     key={entry.label}
@@ -245,9 +269,9 @@ export default function Home({ navigate }) {
               <h2 className="text-4xl font-bold uppercase leading-tight tracking-tight text-stone-900 md:text-5xl">Run your event, not your spreadsheets</h2>
             </div>
 
-            <div className="grid border border-stone-400 lg:grid-cols-3">
+            <div className="grid gap-4 border border-stone-400 p-4 lg:grid-cols-3">
               {organizerSteps.map((step, index) => (
-                <Card key={step.number} className={`p-6 ${index !== organizerSteps.length - 1 ? 'border-b lg:border-b-0 lg:border-r' : ''}`}>
+                <Card key={step.number} className={`p-6`}>
                   <div className="space-y-3">
                     <div className="text-xs uppercase tracking-[0.3em] text-orange-500">{step.number}</div>
                     <h3 className="text-2xl font-semibold uppercase leading-8 tracking-tight text-stone-900">{step.title}</h3>
@@ -283,7 +307,7 @@ export default function Home({ navigate }) {
             <div className="text-2xl font-semibold lowercase leading-8 tracking-tight text-purple-800 md:text-4xl">radius</div>
             <p className="text-xs uppercase tracking-[0.28em] text-zinc-500">radius © 2026. All rights reserved.</p>
           </div>
-          <div className="text-xs uppercase tracking-[0.28em] text-zinc-500">Student communities, events, and passports.</div>
+          
         </div>
       </footer>
     </div>
