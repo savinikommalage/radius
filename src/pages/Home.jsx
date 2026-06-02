@@ -1,23 +1,31 @@
-import React from 'react'
+import React from 'react';
+import { Carousel } from 'antd';
+import 'antd/dist/reset.css';
 
-const audienceBlocks = [
+const features = [
   {
-    title: "WANT TO GO TO A HACKATHON BUT CAN'T FIND A TEAM?",
-    body: "radius has a looking-for-team board. Post that you're available, browse who else is, and form your team before the event even starts."
+    title: "Want to go to a hackathon but can't find a team?",
+    description:
+      "radius has a looking-for-team board. Post that you're available, browse who else is, and form your team before the event even starts.",
   },
   {
-    title: "HAVEN'T FOUND YOUR NICHE COMMUNITY YET?",
-    body: 'Follow the clubs and societies that match your interests. See every event they run - workshops, talks, icebreakers - in one feed.'
+    title: "Haven't found your niche community yet?",
+    description:
+      "Follow the clubs and societies that match your interests. See every event they run — workshops, talks, icebreakers — in one feed.",
   },
   {
-    title: 'TIRED OF ONLY DOING UNIVERSITY WORK?',
-    body: "There's more going on than your timetable. radius surfaces events from across your university and beyond - so you actually know what's out there."
+    title: "Tired of only doing university work?",
+    description:
+      "There’s more going on than your timetable. radius surfaces events from across your university and beyond — so you actually know what’s out there.",
   },
   {
-    title: 'WANT TO MAKE CONNECTIONS THAT GO SOMEWHERE?',
-    body: 'Meet people through shared interests at real events. Your attendance gets logged - a verified record of who you are beyond your transcript.'
-  }
-]
+    title: "Want to make connections that go somewhere?",
+    description:
+      "Meet people through shared interests at real events. Verified records of what you’ve done make it easy to show impact.",
+  },
+];
+
+
 
 const howItWorks = [
   {
@@ -78,6 +86,64 @@ const organizerSteps = [
     body: 'Open the scanner on any phone. Scan a QR code. Done. Attendance tracked automatically.'
   }
 ]
+
+const PrevArrow = ({ onClick, ...rest }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    {...rest}
+    style={{
+      position: 'absolute',
+      left: '-48px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      zIndex: 10,
+      background: 'transparent',
+      border: '1.5px solid #7c3aed',
+      borderRadius: '50%',
+      width: '36px',
+      height: '36px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer',
+      color: '#7c3aed',
+      fontSize: '18px',
+      lineHeight: 1,
+    }}
+  >
+    ‹
+  </button>
+);
+
+const NextArrow = ({ onClick, ...rest }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    {...rest}
+    style={{
+      position: 'absolute',
+      right: '-48px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      zIndex: 10,
+      background: 'transparent',
+      border: '1.5px solid #7c3aed',
+      borderRadius: '50%',
+      width: '36px',
+      height: '36px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer',
+      color: '#7c3aed',
+      fontSize: '18px',
+      lineHeight: 1,
+    }}
+  >
+    ›
+  </button>
+);
 
 function SectionEyebrow({ children, tone = 'orange' }) {
   const toneClass = tone === 'indigo' ? 'text-indigo-700' : tone === 'stone' ? 'text-stone-500' : 'text-orange-500'
@@ -165,7 +231,7 @@ export default function Home({ navigate }) {
           </div>
         </section>
 
-        <section className="border-b border-stone-400 bg-orange-50">
+        {/* <section className="border-b border-stone-400 bg-orange-50">
           <div className="mx-auto grid max-w-[1280px] gap-6 px-6 py-6 md:grid-cols-2 md:px-12 xl:grid-cols-4">
             {audienceBlocks.map((block, index) => (
               <Card
@@ -182,7 +248,34 @@ export default function Home({ navigate }) {
               </Card>
             ))}
           </div>
-        </section>
+        </section> */}
+<section className="border-b border-stone-400 bg-orange-50 py-10">
+  <div className="mx-auto max-w-5xl px-16 md:px-20">
+    <div style={{ position: 'relative' }}>  {/* ← add this wrapper */}
+      <Carousel
+        autoplay
+        autoplaySpeed={2000}
+        speed={500}
+        prevArrow={<PrevArrow />}
+        nextArrow={<NextArrow />}
+        arrows
+      >
+        {features.map((feature, index) => (
+          <div key={index}>
+            <div className="rounded-2xl border border-stone-300 bg-[#FBF9F2] p-10 text-center">
+              <h2 className="mb-4 text-2xl font-semibold uppercase">
+                {feature.title}
+              </h2>
+              <p className="mx-auto max-w-2xl text-zinc-700">
+                {feature.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  </div>
+</section>
 
         <section className="border-b border-stone-400 bg-orange-50 px-6 py-14 md:px-12 lg:py-20">
           <div className="mx-auto flex max-w-[1280px] flex-col gap-8">
