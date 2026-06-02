@@ -83,8 +83,13 @@ const organizerSteps = [
     number: '03',
     title: 'SCAN AND CHECK IN ON THE DAY',
     body: 'Open the scanner on any phone. Scan a QR code. Done. Attendance tracked automatically.'
+  },
+  {
+    number: '04',
+    title: 'FIND SPONSORS AND INDUSTRY PARTNERS',
+    body: 'Tell us what your event needs. We connect you with companies and communities looking to reach exactly your kind of crowd.'
   }
-]
+];
 
 function SectionEyebrow({ children, tone = 'orange' }) {
   const toneClass = tone === 'indigo' ? 'text-indigo-700' : tone === 'stone' ? 'text-stone-500' : 'text-orange-500'
@@ -129,7 +134,7 @@ export default function Home({ navigate }) {
                   <span className="block text-purple-800">what matters.</span>
                 </h1>
                 <p className="max-w-2xl border-l-2 border-purple-800 pl-4 text-lg leading-7 text-zinc-700 md:text-xl md:leading-8">
-                  radius is a student event platform for Sri Lankan university communities - built so you can discover events, find your people, and build a real record of everything you&apos;ve been part of.
+                  radius is a student event platform for Sri Lankan Tech communities - built so you can discover events, find your people, and build a real record of everything you&apos;ve been part of.
                 </p>
 
               </div>
@@ -285,7 +290,7 @@ export default function Home({ navigate }) {
 
         <section className="border-b border-gray-200 bg-white px-4 py-16 md:px-8 lg:px-12">
           <div className="mx-auto flex max-w-[768px] flex-col items-start gap-6 rounded-sm border border-gray-200 bg-[#FBF9F2] p-8 md:p-12">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#534AB7]">06 / BETA ACCESS</p>
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#534AB7]"></p>
             <h2 className="text-2xl font-bold uppercase tracking-[0.06em] text-black md:text-3xl">Want early access?</h2>
             <p className="max-w-2xl text-sm leading-6 text-gray-600 md:text-base">
               We&apos;ve moved the questionnaire to its own page so the landing page stays focused. Tap the survey button to continue.
