@@ -141,6 +141,7 @@ export default function Survey({ navigate }) {
     email: ''
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
 
   const step = steps[stepIndex]
@@ -180,26 +181,33 @@ export default function Survey({ navigate }) {
   }
 
   async function handleSubmit(event) {
-    event.preventDefault()
+    if (event) event.preventDefault()
+    if (submitting) return
 
-    const { error } = await supabase
-      .from('responses')
-      .insert([{
-        intent: form.intent,
-        participation: form.participation,
-        teamwork: form.teamwork,
-        solution: form.solution,
-        priority: form.priority,
-        reach: form.reach,
-        crosscommunity: form.crosscommunity,
-        email: form.email
-      }])
+    setSubmitting(true)
+    try {
+      const { error } = await supabase
+        .from('responses')
+        .insert([{
+          intent: form.intent,
+          participation: form.participation,
+          teamwork: form.teamwork,
+          solution: form.solution,
+          priority: form.priority,
+          reach: form.reach,
+          crosscommunity: form.crosscommunity,
+          email: form.email
+        }])
 
-    if (error) {
-      console.error('Submission error:', error)
+      if (error) {
+        console.error('Submission error:', error)
+      }
+    } catch (err) {
+      console.error('Submission exception:', err)
+    } finally {
+      setSubmitted(true)
+      setSubmitting(false)
     }
-
-    setSubmitted(true)
   }
 
   const currentStepClass = useMemo(() => {
@@ -303,7 +311,14 @@ export default function Survey({ navigate }) {
                         required
                         value={form.email}
                         onChange={event => setForm(current => ({ ...current, email: event.target.value }))}
-
+                        onKeyDown={event => {
+                          if (event.key === 'Enter') {
+                            if (event.currentTarget.form.reportValidity()) {
+                              event.preventDefault()
+                              handleSubmit(event)
+                            }
+                          }
+                        }}
                         placeholder="your.name@gmail.com"
                         className="w-full border border-gray-600 bg-transparent px-3 py-3 font-mono text-base text-white outline-none placeholder:text-gray-500 focus:border-purple-800 sm:px-4 sm:py-4 sm:text-lg"
                       />
@@ -324,9 +339,10 @@ export default function Survey({ navigate }) {
                   {isLastStep ? (
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center border border-purple-800 bg-purple-800 px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-purple-900 sm:px-8 sm:py-4 sm:text-sm"
+                      disabled={submitting}
+                      className="inline-flex items-center justify-center border border-purple-800 bg-purple-800 px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-purple-900 sm:px-8 sm:py-4 sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Submit responses →
+                      {submitting ? 'Submitting...' : 'Submit responses →'}
                     </button>
                   ) : (
                     <button

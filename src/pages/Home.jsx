@@ -156,16 +156,16 @@ export default function Home({ navigate }) {
               </div>
             </div>
 
-            <div className="rounded-sm border-2 border-[#534AB7] bg-stone-200 p-3 shadow-[0_24px_80px_rgba(28,25,23,0.08)] sm:p-4 lg:translate-x-4 xl:translate-x-6">
-              <div className="border-2 border-[#534AB7] bg-white/60 p-3 sm:p-4">
-                <div className="mt-4">
+            <div className="min-w-0 rounded-sm border-2 border-purple-800 bg-stone-200 p-3 shadow-[0_24px_80px_rgba(28,25,23,0.08)] sm:p-4 lg:translate-x-4 xl:translate-x-6">
+              <div className="min-w-0 border-2 border-purple-800 bg-white/60 p-3 sm:p-4">
+                <div className="mt-4 min-w-0">
                   {/* Carousel placed here to the right of the hero text */}
-                  <div className="mx-auto max-w-md overflow-hidden px-8">
+                  <div className="mx-auto max-w-full overflow-hidden px-0 sm:max-w-md sm:px-8">
                     <div className="relative">
                       <button
                         aria-label="Previous"
                         onClick={() => carouselRef.current?.prev?.()}
-                        className="absolute -left-6 md:-left-8 top-1/2 z-20 -translate-y-1/2 p-3 text-stone-800 hover:text-stone-900"
+                        className="hidden sm:block absolute -left-6 md:-left-8 top-1/2 z-20 -translate-y-1/2 p-3 text-stone-800 hover:text-stone-900"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path className="text-stone-800" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -175,7 +175,7 @@ export default function Home({ navigate }) {
                       <button
                         aria-label="Next"
                         onClick={() => carouselRef.current?.next?.()}
-                        className="absolute -right-6 md:-right-8 top-1/2 z-20 -translate-y-1/2 p-3 text-stone-800 hover:text-stone-900"
+                        className="hidden sm:block absolute -right-6 md:-right-8 top-1/2 z-20 -translate-y-1/2 p-3 text-stone-800 hover:text-stone-900"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path className="text-stone-800" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -191,7 +191,7 @@ export default function Home({ navigate }) {
                         >
                           {features.map((feature, index) => (
                             <div key={index}>
-                              <div className="rounded-2xl border-2 border-[#534AB7] bg-[#FBF9F2] p-4 text-center min-h-[160px] sm:min-h-[180px] md:min-h-[300px] flex items-center justify-center sm:p-6">
+                              <div className="rounded-2xl border-2 border-purple-800 bg-[#FBF9F2] p-4 text-center min-h-[160px] sm:min-h-[180px] md:min-h-[300px] flex items-center justify-center sm:p-6">
                                 <div>
                                   <h2 className="mb-3 text-lg font-semibold uppercase sm:mb-4 sm:text-xl md:text-2xl">
                                     {feature.title}
@@ -289,8 +289,8 @@ export default function Home({ navigate }) {
         </section>
 
         <section className="border-b border-gray-200 bg-white px-4 py-16 md:px-8 lg:px-12">
-          <div className="mx-auto flex max-w-[768px] flex-col items-start gap-6 rounded-sm border border-gray-200 bg-[#FBF9F2] p-8 md:p-12">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#534AB7]"></p>
+          <div className="mx-auto flex max-w-[768px] flex-col items-start gap-6 rounded-sm border border-purple-800 bg-[#FBF9F2] p-8 md:p-12">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-purple-800"></p>
             <h2 className="text-2xl font-bold uppercase tracking-[0.06em] text-black md:text-3xl">Want early access?</h2>
             <p className="max-w-2xl text-sm leading-6 text-gray-600 md:text-base">
               We&apos;ve moved the questionnaire to its own page so the landing page stays focused. Tap the survey button to continue.
@@ -298,7 +298,7 @@ export default function Home({ navigate }) {
             <button
               type="button"
               onClick={() => navigate('/survey')}
-              className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white transition hover:bg-[#463ea0]"
+              className="inline-flex items-center justify-center border border-purple-800 bg-purple-800 px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white transition hover:bg-purple-900"
             >
               Take the survey →
             </button>
