@@ -65,7 +65,9 @@ h2 {
   color: var(--text-h);
 }
 
-h1 {
+/* Only apply fixed sizes on the default Vite welcome page.
+   The landing & survey pages use Tailwind utility classes instead. */
+#center h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
@@ -74,7 +76,7 @@ h1 {
     margin: 20px 0;
   }
 }
-h2 {
+#center h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;

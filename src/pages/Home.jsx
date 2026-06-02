@@ -112,11 +112,11 @@ export default function Home({ navigate }) {
     <div className="min-h-screen bg-[#faf7f2] text-stone-900">
       <header className="sticky top-0 z-20 border-b border-stone-400 bg-[#faf7f2]/95 backdrop-blur" id="top">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 md:px-12">
-          <div className="text-3xl font-bold lowercase tracking-tight text-purple-800 md:text-4xl">radius</div>
+          <div className="text-2xl font-bold lowercase tracking-tight text-purple-800 sm:text-3xl md:text-4xl">radius</div>
           <button
             type="button"
             onClick={() => navigate('/survey')}
-            className="border border-indigo-800 bg-purple-800 px-4 py-2 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-indigo-800"
+            className="border border-indigo-800 bg-purple-800 px-3 py-2 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-indigo-800 sm:px-4 sm:text-sm"
           >
             Shape what gets built →
           </button>
@@ -125,15 +125,15 @@ export default function Home({ navigate }) {
 
       <main>
         <section className="border-b border-stone-400 bg-[radial-gradient(circle_at_top,_rgba(120,113,108,0.22),_transparent_35%)]">
-          <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 md:px-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-20">
+          <div className="mx-auto grid max-w-[1280px] gap-8 px-4 py-10 sm:px-6 md:px-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10 lg:py-20">
             <div className="space-y-8">
               <div className="space-y-4">
                 <SectionEyebrow tone="indigo"></SectionEyebrow>
-                <h1 className="max-w-3xl text-5xl font-bold uppercase leading-[0.95] tracking-tight text-stone-900 md:text-7xl">
+                <h1 className="max-w-3xl text-3xl font-bold uppercase leading-[0.95] tracking-tight text-stone-900 sm:text-4xl md:text-5xl lg:text-7xl">
                   Never miss
                   <span className="block text-purple-800">what matters.</span>
                 </h1>
-                <p className="max-w-2xl border-l-2 border-purple-800 pl-4 text-lg leading-7 text-zinc-700 md:text-xl md:leading-8">
+                <p className="max-w-2xl border-l-2 border-purple-800 pl-4 text-base leading-6 text-zinc-700 sm:text-lg sm:leading-7 md:text-xl md:leading-8">
                   radius is a student event platform for Sri Lankan Tech communities - built so you can discover events, find your people, and build a real record of everything you&apos;ve been part of.
                 </p>
 
@@ -143,21 +143,21 @@ export default function Home({ navigate }) {
                 <button
                   type="button"
                   onClick={() => navigate('/survey')}
-                  className="inline-flex items-center justify-center border border-indigo-800 bg-purple-800 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-purple-700"
+                  className="inline-flex items-center justify-center border border-indigo-800 bg-purple-800 px-4 py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-purple-700 sm:px-6 sm:text-sm"
                 >
                   Tell us what you need - 2 mins →
                 </button>
                 <a
                   href="#organizers"
-                  className="inline-flex items-center justify-center border border-orange-400 bg-orange-400 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition hover:bg-orange-500"
+                  className="inline-flex items-center justify-center border border-orange-400 bg-orange-400 px-4 py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-orange-500 sm:px-6 sm:text-sm"
                 >
                   I run a club or society
                 </a>
               </div>
             </div>
 
-            <div className="rounded-sm border-2 border-[#534AB7] bg-stone-200 p-4 shadow-[0_24px_80px_rgba(28,25,23,0.08)] lg:translate-x-4 xl:translate-x-6">
-              <div className="border-2 border-[#534AB7] bg-white/60 p-4">
+            <div className="rounded-sm border-2 border-[#534AB7] bg-stone-200 p-3 shadow-[0_24px_80px_rgba(28,25,23,0.08)] sm:p-4 lg:translate-x-4 xl:translate-x-6">
+              <div className="border-2 border-[#534AB7] bg-white/60 p-3 sm:p-4">
                 <div className="mt-4">
                   {/* Carousel placed here to the right of the hero text */}
                   <div className="mx-auto max-w-md px-2">
@@ -191,12 +191,12 @@ export default function Home({ navigate }) {
                         >
                           {features.map((feature, index) => (
                             <div key={index}>
-                              <div className="rounded-2xl border-2 border-[#534AB7] bg-[#FBF9F2] p-6 text-center min-h-[180px] md:min-h-[300px] flex items-center justify-center">
+                              <div className="rounded-2xl border-2 border-[#534AB7] bg-[#FBF9F2] p-4 text-center min-h-[160px] sm:min-h-[180px] md:min-h-[300px] flex items-center justify-center sm:p-6">
                                 <div>
-                                  <h2 className="mb-4 text-2xl font-semibold uppercase">
+                                  <h2 className="mb-3 text-lg font-semibold uppercase sm:mb-4 sm:text-xl md:text-2xl">
                                     {feature.title}
                                   </h2>
-                                  <p className="mx-auto max-w-md text-zinc-700">
+                                  <p className="mx-auto max-w-md text-sm text-zinc-700 sm:text-base">
                                     {feature.description}
                                   </p>
                                 </div>
@@ -217,15 +217,15 @@ export default function Home({ navigate }) {
           <div className="mx-auto flex max-w-[1280px] flex-col gap-8">
             <SectionEyebrow tone="orange">How it works</SectionEyebrow>
             <div className="max-w-4xl">
-              <h2 className="text-4xl font-bold uppercase leading-tight tracking-tight text-stone-900 md:text-5xl">From discovery to your passport</h2>
+              <h2 className="text-2xl font-bold uppercase leading-tight tracking-tight text-stone-900 sm:text-3xl md:text-4xl lg:text-5xl">From discovery to your passport</h2>
             </div>
 
-            <div className="grid gap-4 border border-stone-400 p-4 md:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-4 border border-stone-400 p-3 sm:p-4 sm:grid-cols-2 xl:grid-cols-4">
               {howItWorks.map((step, index) => (
                 <Card key={step.number} className={`p-6`}>
                   <div className="space-y-3">
                     <div className="text-xs font-normal uppercase tracking-[0.3em] text-indigo-800">{step.number}</div>
-                    <h3 className="text-2xl font-semibold uppercase leading-8 tracking-tight text-stone-900">{step.title}</h3>
+                    <h3 className="text-xl font-semibold uppercase leading-7 tracking-tight text-stone-900 sm:text-2xl sm:leading-8">{step.title}</h3>
                     <p className="text-sm leading-5 text-zinc-700">{step.body}</p>
                   </div>
                 </Card>
@@ -239,10 +239,10 @@ export default function Home({ navigate }) {
             <div className="border-b border-indigo-700/20 px-6 py-14 md:px-12 lg:border-b-0 lg:py-20">
               <div className="max-w-2xl space-y-6">
                 <SectionEyebrow tone="indigo">Your passport</SectionEyebrow>
-                <h2 className="text-5xl font-bold uppercase leading-[0.95] tracking-tight text-violet-950 md:text-7xl">
+                <h2 className="text-3xl font-bold uppercase leading-[0.95] tracking-tight text-violet-950 sm:text-4xl md:text-5xl lg:text-7xl">
                   Proof of what you&apos;ve actually done.
                 </h2>
-                <p className="max-w-xl text-lg leading-7 text-indigo-700 md:text-xl md:leading-8">
+                <p className="max-w-xl text-base leading-6 text-indigo-700 sm:text-lg sm:leading-7 md:text-xl md:leading-8">
                   Your transcript shows your grades. Your Passport shows who you are outside of class - every event attended, every hackathon competed, every team you&apos;ve led. Verified, not self-reported. Share it on LinkedIn or with companies who are hiring.
                 </p>
               </div>
@@ -271,15 +271,15 @@ export default function Home({ navigate }) {
           <div className="mx-auto flex max-w-[1280px] flex-col gap-8">
             <SectionEyebrow tone="orange">For club and society organizers</SectionEyebrow>
             <div className="max-w-4xl">
-              <h2 className="text-4xl font-bold uppercase leading-tight tracking-tight text-stone-900 md:text-5xl">Run your event, not your spreadsheets</h2>
+              <h2 className="text-2xl font-bold uppercase leading-tight tracking-tight text-stone-900 sm:text-3xl md:text-4xl lg:text-5xl">Run your event, not your spreadsheets</h2>
             </div>
 
-            <div className="grid gap-4 border border-stone-400 p-4 lg:grid-cols-3">
+            <div className="grid gap-4 border border-stone-400 p-3 sm:p-4 sm:grid-cols-2 lg:grid-cols-4">
               {organizerSteps.map((step, index) => (
                 <Card key={step.number} className={`p-6`}>
                   <div className="space-y-3">
                     <div className="text-xs uppercase tracking-[0.3em] text-orange-500">{step.number}</div>
-                    <h3 className="text-2xl font-semibold uppercase leading-8 tracking-tight text-stone-900">{step.title}</h3>
+                    <h3 className="text-xl font-semibold uppercase leading-7 tracking-tight text-stone-900 sm:text-2xl sm:leading-8">{step.title}</h3>
                     <p className="text-sm leading-5 text-zinc-700">{step.body}</p>
                   </div>
                 </Card>

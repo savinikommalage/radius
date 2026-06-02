@@ -5,7 +5,7 @@ const steps = [
   {
     key: 'intent',
     eyebrow: '01 / INTENT',
-    title: <>Do you actively look for campus events or<br />just stumble upon them?</>,
+    title: <>Do you actively look for campus events or<span className="hidden sm:inline"><br /></span>{' '}just stumble upon them?</>,
     type: 'single',
     options: [
       {
@@ -23,7 +23,7 @@ const steps = [
   {
     key: 'participation',
     eyebrow: '02 / PARTICIPATION',
-    title: <>Do you wish you went to more events than<br />you currently do?</>,
+    title: <>Do you wish you went to more events than<span className="hidden sm:inline"><br /></span>{' '}you currently do?</>,
     type: 'single',
     options: [
       { value: 'yes-definitely', label: 'Yes, definitely' },
@@ -33,7 +33,7 @@ const steps = [
   {
     key: 'teamwork',
     eyebrow: '03 / TEAMWORK',
-    title: <>How hard is it to find a team for a<br />hackathon?</>,
+    title: <>How hard is it to find a team for a<span className="hidden sm:inline"><br /></span>{' '}hackathon?</>,
     type: 'single',
     options: [
       'Impossible. I usually end up not going because I don’t have a team.',
@@ -44,7 +44,7 @@ const steps = [
   {
     key: 'solution',
     eyebrow: '04 / SOLUTION',
-    title: <>Would a unified event calendar for the<br />whole tech community change things?</>,
+    title: <>Would a unified event calendar for the<span className="hidden sm:inline"><br /></span>{' '}whole tech community change things?</>,
     type: 'single',
     options: ['Yes — I’d actually use this daily', 'Maybe — depends on how good it is']
   },
@@ -58,7 +58,7 @@ const steps = [
   {
     key: 'reach',
     eyebrow: '06 / REACH',
-    title: <>When you post about an event, how far<br />does it actually reach?</>,
+    title: <>When you post about an event, how far<span className="hidden sm:inline"><br /></span>{' '}does it actually reach?</>,
     type: 'single',
     options: [
       {
@@ -81,7 +81,7 @@ const steps = [
   {
     key: 'crosscommunity',
     eyebrow: '07 / COORDINATION',
-    title: <>How hard is it to organise something<br />that spans multiple communities or universities?</>,
+    title: <>How hard is it to organise something<span className="hidden sm:inline"><br /></span>{' '}that spans multiple communities or universities?</>,
     type: 'single',
     options: [
       {
@@ -115,7 +115,7 @@ function OptionCard({ title, description, selected, onClick, className = '' }) {
     <button
       type="button"
       onClick={onClick}
-      className={`w-full border border-gray-300 bg-white p-6 text-left transition duration-300 ease-out hover:border-[#534AB7] hover:bg-[#FBF9F2] ${selected ? 'border-[#534AB7] bg-[#FBF9F2]' : ''} ${className}`}
+      className={`w-full border border-gray-300 bg-white p-4 text-left transition duration-300 ease-out hover:border-[#534AB7] hover:bg-[#FBF9F2] sm:p-6 ${selected ? 'border-[#534AB7] bg-[#FBF9F2]' : ''} ${className}`}
     >
       <div className="flex items-start gap-3">
         <span className={`mt-0.5 h-4 w-4 shrink-0 border ${selected ? 'border-[#534AB7] bg-[#534AB7]' : 'border-gray-500 bg-white'}`} />
@@ -229,7 +229,7 @@ export default function Survey({ navigate }) {
     <main className="min-h-screen bg-white text-black">
       <header className="border-b border-gray-300 bg-[#FBF9F2]">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4 md:px-12">
-          <button type="button" onClick={() => navigate('/')} className="text-3xl font-bold lowercase tracking-tight text-purple-800 md:text-4xl">
+          <button type="button" onClick={() => navigate('/')} className="text-2xl font-bold lowercase tracking-tight text-purple-800 sm:text-3xl md:text-4xl">
             radius
           </button>
           <button
@@ -242,14 +242,14 @@ export default function Survey({ navigate }) {
         </div>
       </header>
 
-      <section className="mx-auto flex max-w-[768px] justify-center px-4 py-10 md:px-8 lg:py-12">
+      <section className="mx-auto flex max-w-[768px] justify-center px-3 py-6 sm:px-4 sm:py-10 md:px-8 lg:py-12">
         <form onSubmit={handleSubmit} className="w-full overflow-hidden bg-white">
           <div key={step.key} className={currentStepClass}>
-            <section className="border border-gray-300 p-8 md:p-12">
+            <section className="border border-gray-300 p-5 sm:p-8 md:p-12">
               <div className="space-y-6">
                 <div className="space-y-2">
                   <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#534AB7]">{step.eyebrow}</p>
-                  <h1 className="text-2xl font-bold uppercase tracking-[0.06em] text-black md:text-3xl">{step.title}</h1>
+                  <h1 className="text-xl font-bold uppercase tracking-[0.06em] text-black sm:text-2xl md:text-3xl">{step.title}</h1>
                 </div>
 
                 {step.type === 'single' && step.key !== 'solution' ? (
@@ -291,9 +291,8 @@ export default function Survey({ navigate }) {
                     ))}
                   </div>
                 ) : null}
-
                 {step.key === 'email' ? (
-                  <div className="space-y-6 rounded-sm bg-[#111827] p-6 md:p-8">
+                  <div className="space-y-4 rounded-sm bg-[#111827] p-4 sm:space-y-6 sm:p-6 md:p-8">
                     <p className="max-w-2xl text-sm leading-6 text-[#9CA3AF] md:text-base">
                       Leave your email below. We&apos;ll send you an invite when we&apos;re ready.
                     </p>
@@ -306,7 +305,7 @@ export default function Survey({ navigate }) {
                         onChange={event => setForm(current => ({ ...current, email: event.target.value }))}
 
                         placeholder="your.name@gmail.com"
-                        className="w-full border border-gray-600 bg-transparent px-4 py-4 font-mono text-lg text-white outline-none placeholder:text-gray-500 focus:border-[#534AB7]"
+                        className="w-full border border-gray-600 bg-transparent px-3 py-3 font-mono text-base text-white outline-none placeholder:text-gray-500 focus:border-[#534AB7] sm:px-4 sm:py-4 sm:text-lg"
                       />
                     </label>
                     </div>
@@ -317,7 +316,7 @@ export default function Survey({ navigate }) {
                     type="button"
                     onClick={retreat}
                     disabled={isFirstStep}
-                    className="inline-flex items-center justify-center border border-gray-300 bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] text-black transition hover:border-[#534AB7] disabled:cursor-not-allowed disabled:opacity-40"
+                    className="inline-flex items-center justify-center border border-gray-300 bg-white px-4 py-2.5 text-xs font-bold uppercase tracking-[0.16em] text-black transition hover:border-[#534AB7] disabled:cursor-not-allowed disabled:opacity-40 sm:px-5 sm:py-3 sm:text-sm"
                   >
                     Back
                   </button>
@@ -325,7 +324,7 @@ export default function Survey({ navigate }) {
                   {isLastStep ? (
                     <button
                       type="submit"
-                      className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-[#463ea0]"
+                      className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-[#463ea0] sm:px-8 sm:py-4 sm:text-sm"
                     >
                       Submit responses →
                     </button>
@@ -333,7 +332,7 @@ export default function Survey({ navigate }) {
                     <button
                       type="button"
                       onClick={advance}
-                      className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-[#463ea0]"
+                      className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] text-white transition duration-300 hover:bg-[#463ea0] sm:px-8 sm:py-4 sm:text-sm"
                     >
                       Next page →
                     </button>
