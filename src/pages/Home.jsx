@@ -123,7 +123,7 @@ export default function Home({ navigate }) {
           <div className="mx-auto grid max-w-[1280px] gap-10 px-6 py-14 md:px-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-20">
             <div className="space-y-8">
               <div className="space-y-4">
-                <SectionEyebrow tone="indigo">Event Passport</SectionEyebrow>
+                <SectionEyebrow tone="indigo"></SectionEyebrow>
                 <h1 className="max-w-3xl text-5xl font-bold uppercase leading-[0.95] tracking-tight text-stone-900 md:text-7xl">
                   Never miss
                   <span className="block text-purple-800">what matters.</span>
