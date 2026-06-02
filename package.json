@@ -1,39 +1,18 @@
 {
-<<<<<<< HEAD
   "name": "radius-landing",
   "version": "0.1.0",
   "private": true,
-=======
-  "name": "radius",
-  "private": true,
-  "version": "0.0.0",
->>>>>>> 70729c44659206cec7168ea92c99c4187cc23021
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-<<<<<<< HEAD
     "preview": "vite preview",
     "lint": "eslint ."
-=======
-    "lint": "eslint .",
-    "preview": "vite preview"
->>>>>>> 70729c44659206cec7168ea92c99c4187cc23021
   },
   "dependencies": {
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-<<<<<<< HEAD
     "@supabase/supabase-js": "^2.30.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^6.0.1",
-    "vite": "^8.0.12",
-    "tailwindcss": "^3.4.7",
-    "postcss": "^8.4.21",
-    "autoprefixer": "^10.4.14"
-=======
-    "react-router-dom": "^6.30.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -44,7 +23,9 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
-    "vite": "^8.0.12"
->>>>>>> 70729c44659206cec7168ea92c99c4187cc23021
+    "vite": "^8.0.12",
+    "tailwindcss": "^3.4.7",
+    "postcss": "^8.4.21",
+    "autoprefixer": "^10.4.14"
   }
 }
