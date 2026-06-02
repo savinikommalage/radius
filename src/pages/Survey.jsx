@@ -1,3 +1,4 @@
+import { supabase } from '../services/supabase'
 import React, { useEffect, useMemo, useState } from 'react'
 
 const steps = [
@@ -139,6 +140,7 @@ export default function Survey({ navigate }) {
     crosscommunity: '',  // add this
     email: ''
   })
+  const [submitted, setSubmitted] = useState(false)
 
 
   const step = steps[stepIndex]
@@ -177,13 +179,52 @@ export default function Survey({ navigate }) {
     })
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
+
+    const { error } = await supabase
+      .from('responses')
+      .insert([{
+        intent: form.intent,
+        participation: form.participation,
+        teamwork: form.teamwork,
+        solution: form.solution,
+        priority: form.priority,
+        reach: form.reach,
+        crosscommunity: form.crosscommunity,
+        email: form.email
+      }])
+
+    if (error) {
+      console.error('Submission error:', error)
+      return
+    }
+
+    setSubmitted(true)
   }
 
   const currentStepClass = useMemo(() => {
     return 'animate-[surveyStepIn_380ms_ease]'
   }, [stepIndex])
+
+  if (submitted) {
+    return (
+      <main className="min-h-screen bg-white text-black flex items-center justify-center px-6">
+        <div className="max-w-md text-center space-y-6">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#534AB7]">Done</p>
+          <h1 className="text-3xl font-bold uppercase tracking-tight">Thanks — you're in.</h1>
+          <p className="text-gray-600 leading-6">We'll reach out when early access opens. You've helped shape what gets built.</p>
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className="inline-flex items-center justify-center border border-[#534AB7] bg-[#534AB7] px-8 py-4 text-sm font-medium uppercase tracking-[0.18em] text-white transition hover:bg-[#463ea0]"
+          >
+            Back to home →
+          </button>
+        </div>
+      </main>
+    )
+  }
 
   return (
     <main className="min-h-screen bg-white text-black">
