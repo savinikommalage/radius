@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Home from './pages/Home'
 import Survey from './pages/Survey'
+import { Analytics } from '@vercel/analytics/react'
+
 
 function getPathname() {
   return window.location.pathname || '/'
@@ -26,5 +28,10 @@ export default function App() {
 
   const page = pathname === '/survey' ? <Survey navigate={navigate} /> : <Home navigate={navigate} />
 
-  return <div className="page-transition">{page}</div>
+  return (
+    <div className="page-transition">
+      {page}
+      <Analytics />
+    </div>
+  )
 }
