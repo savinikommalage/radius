@@ -145,7 +145,7 @@ export default function Home({ navigate }) {
                   onClick={() => navigate('/survey')}
                   className="inline-flex items-center justify-center border border-indigo-800 bg-purple-800 px-4 py-3 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-purple-700 sm:px-6 sm:text-sm"
                 >
-                  Tell us what you need - 2 mins →
+                  Tell us what you need - 1 min →
                 </button>
                 <a
                   href="#organizers"
@@ -293,7 +293,6 @@ export default function Home({ navigate }) {
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-purple-800"></p>
             <h2 className="text-2xl font-bold uppercase tracking-[0.06em] text-black md:text-3xl">Want early access?</h2>
             <p className="max-w-2xl text-sm leading-6 text-gray-600 md:text-base">
-              We&apos;ve moved the questionnaire to its own page so the landing page stays focused. Tap the survey button to continue.
             </p>
             <button
               type="button"
